@@ -1,4 +1,4 @@
-package lesson4.io.classwork.genText;
+package lesson4.io.homework.genText;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

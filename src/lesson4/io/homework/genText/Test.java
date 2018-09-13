@@ -1,4 +1,4 @@
-package lesson4.io.classwork.genText;
+package lesson4.io.homework.genText;
 
 public class Test {
     public static void main(String[] args) {
