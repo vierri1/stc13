@@ -96,7 +96,7 @@ public class TextGenerator {
     }
 
     private char getEndSymb() {
-        char[] arrayMarks = {'.', '!', '?'};
+        char[] arrayMarks = {'.', '!', '?', '…'};
         int randomIndex = getRandomInt(0, arrayMarks.length);
         return arrayMarks[randomIndex];
     }
