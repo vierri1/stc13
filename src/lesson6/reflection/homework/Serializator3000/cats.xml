@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lesson6.reflection.homework.Serializator3000.Cat>
+    <name type="java.lang.String" value="Leo"/>
+    <age type="int" value="4"/>
+    <color type="java.lang.String" value="tricolor"/>
+    <legsCount type="short" value="4"/>
+    <isSleep type="boolean" value="true"/>
+    <length type="double" value="0.47"/>
+</lesson6.reflection.homework.Serializator3000.Cat>

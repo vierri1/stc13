@@ -1,48 +1,40 @@
 package lesson4.io.homework.genText;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
 public class TextGenerator {
 
+
     public void genFiles(String path, int n, int size, String[] words, int probability) {
-        for (int i = 1; i <= n; i++) {
-            try (FileWriter fileWriter = new FileWriter(path + "file" + i + ".txt")) {
-                fileWriter.write(genText(size, probability, words));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+        for (int j = 1; j <= n; j++) {
+            int bound = 20;
+            int countGenSent = 0;
+            if (size < 20) {
+                bound = size;
+            }
+            int paragraphLength;
+            int sentencesLeft = size - countGenSent;
+            try (FileWriter fileWriter = new FileWriter(path + "file" + j + ".txt")) {
+                while (sentencesLeft > 0) {
+                    paragraphLength = getRandomInt(1, bound);
+                    for (int i = 0; i < paragraphLength; i++) {
+                        fileWriter.write(getSentence(probability, words));
+                        countGenSent++;
+                    }
+                    fileWriter.append("   \n");
+                    sentencesLeft = size - countGenSent;
+                    if (sentencesLeft > 20) {
+                        bound = 20;
+                    } else {
+                        bound = sentencesLeft;
+                    }
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    private String genText(int size, int probability, String[] word) {
-        int bound = 20;
-        int countGenSent = 0;
-        if (size < 20) {
-            bound = size;
-        }
-        StringBuilder text = new StringBuilder();
-        int paragraphLength;
-        int sentencesLeft = size - countGenSent;
-        while (sentencesLeft > 0) {
-            paragraphLength = getRandomInt(1, bound);
-            for (int i = 0; i < paragraphLength; i++) {
-                text.append(getSentence(probability, word));
-                countGenSent++;
-            }
-            text.append("   \n");
-            sentencesLeft = size - countGenSent;
-            if (sentencesLeft > 20) {
-                bound = 20;
-            } else {
-                bound = sentencesLeft;
-            }
-        }
-        return text.toString();
     }
 
     private String getSentence(int probability, String[] words) {
