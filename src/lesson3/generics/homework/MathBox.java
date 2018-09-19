@@ -17,9 +17,9 @@ public class MathBox<T extends Number> extends ObjectBox {
 
     public double summator() {
         //TODO Узнать почему не работает такая конструкция
-//        return collection.stream()
+//      return treeSet.stream()
 //                .mapToDouble(Number::doubleValue)
-//                .sum();
+//               .sum();
 
         return collection.stream()
                 .map(a -> ((Number) a).doubleValue())
