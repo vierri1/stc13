@@ -14,7 +14,7 @@ public class Test {
             ex.printStackTrace();
         }
 
-        System.out.println("Summator: " + mathBox.summator());
+        System.out.println("Calc: " + mathBox.summator());
 
         mathBox.removeElement(10);
         System.out.println("Remove 10 " + mathBox.toString());
