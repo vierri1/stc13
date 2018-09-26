@@ -11,7 +11,7 @@ public class MyFileReader {
     public void getWordsFromFile(String path, String path2) throws IOException {
 
         String text = Files.lines(Paths.get(path))
-                .flatMap(p -> Arrays.stream(p.split("[\\s,\\.\\!]")))
+                .flatMap(p -> Arrays.stream(p.split("[\\s,\\.\\!\\?\\-\":)(;]")))
                 .distinct()
                 .map(String::toLowerCase)
                 .collect(Collectors.joining("|"));

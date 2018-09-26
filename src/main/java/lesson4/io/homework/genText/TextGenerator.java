@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.Random;
 
 public class TextGenerator {
-
+    private int countInseredWords;
+    private int countSentence;
 
     public void genFiles(String path, int n, int size, String[] words, int probability) {
         for (int j = 1; j <= n; j++) {
@@ -23,7 +24,7 @@ public class TextGenerator {
                         fileWriter.write(getSentence(probability, words));
                         countGenSent++;
                     }
-                    fileWriter.append("   \n");
+                    fileWriter.append("\n");
                     sentencesLeft = size - countGenSent;
                     if (sentencesLeft > 20) {
                         bound = 20;
@@ -35,6 +36,8 @@ public class TextGenerator {
                 e.printStackTrace();
             }
         }
+        System.out.println(countInseredWords);
+        System.out.println(countSentence);
     }
 
     private String getSentence(int probability, String[] words) {
@@ -45,6 +48,7 @@ public class TextGenerator {
         String word;
         for (int i = 0; i < sentenceLength; i++) {
             if (!isWordInsered && isNeedInsert(probability)) {
+                countInseredWords++;
                 word = getWordFromArray(words);
                 isWordInsered = true;
             } else {
@@ -65,6 +69,7 @@ public class TextGenerator {
                 sentence.append(" ");
             }
         }
+        countSentence++;
         return sentence.toString();
     }
 
