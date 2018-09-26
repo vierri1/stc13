@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Random random = new Random();
         List<String> stringList = new ArrayList<>();
         String str = "lksdjfl;kadsfkjsad;fladsfaskdfjlk;sadfa;lskdfjsa;lfkj dsljfdsjfklsdjf;lks akf;jds klf;jas kjf ;dlsf j" +
