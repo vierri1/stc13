@@ -8,7 +8,7 @@ public class TextGenerator {
     private int countInseredWords;
     private int countSentence;
 
-    public void genFiles(String path, int n, int size, String[] words, int probability) {
+    public void genFiles(String path, int n, int size, String[] words, int probability) throws IOException {
         for (int j = 1; j <= n; j++) {
             int bound = 20;
             int countGenSent = 0;
@@ -34,13 +34,14 @@ public class TextGenerator {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+                throw e;
             }
         }
         System.out.println(countInseredWords);
         System.out.println(countSentence);
     }
 
-    private String getSentence(int probability, String[] words) {
+    String getSentence(int probability, String[] words) {
         boolean isStartSentence = true;
         boolean isWordInsered = false;
         int sentenceLength = getRandomInt(1, 15);
@@ -73,11 +74,11 @@ public class TextGenerator {
         return sentence.toString();
     }
 
-    private boolean isNeedInsert(int probability) {
+    boolean isNeedInsert(int probability) {
         return probability != 0 && getRandomInt(1, probability) == 1;
     }
 
-    private String getRandomWord() {
+    String getRandomWord() {
         int wordLength = getRandomInt(1, 15);
         StringBuilder word = new StringBuilder();
         for (int i = 0; i < wordLength; i++) {
@@ -87,19 +88,18 @@ public class TextGenerator {
         return word.toString();
     }
 
-    private String getWordFromArray(String[] words) {
+    String getWordFromArray(String[] words) {
         int index = getRandomInt(0, words.length - 1);
         return words[index];
     }
 
-    private char getEndSymb() {
+    char getEndSymb() {
         char[] arrayMarks = {'.', '!', '?', '…'};
         int randomIndex = getRandomInt(0, arrayMarks.length);
         return arrayMarks[randomIndex];
     }
 
-
-    private int getRandomInt(int min, int bound) {
+    int getRandomInt(int min, int bound) {
         Random random = new Random();
         return min + random.nextInt(bound);
     }
