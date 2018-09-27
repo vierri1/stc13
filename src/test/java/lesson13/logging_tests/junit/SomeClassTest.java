@@ -35,4 +35,10 @@ class SomeClassTest {
     void doSome() {
         assertThrows(IOException.class, () -> someClass.doSome(5));
     }
+
+    @Test
+    void doSomeWithoutException() {
+
+    }
+
 }
