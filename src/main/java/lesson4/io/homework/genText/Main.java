@@ -6,9 +6,9 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 
 
-public class Test {
+public class Main {
     public static void main(String[] args) throws IOException {
-        TextGenerator textGenerator = new TextGenerator();
+        TextGenerator textGenerator = new TextGenerator(new GeneratorUtilsImpl());
 
         String[] words = Files.lines(Paths.get("/Users/Andrey/Documents/Учеба/stc13/projects/lessonsProject/src/lesson4/io/homework/genText/resultarray.txt"))
                 .flatMap(line -> Arrays.stream(line.split("[|]")))

@@ -14,7 +14,7 @@ public class Main {
                 "kldsjf lk;asjdfk jdsafjsdd;sfjdsnkldsaf;jsdljfdskfasgnd;fj aklw f;alkdsfj lkadjs flkjdasfklmasfijwmlkjf dkasf ;saklj " +
                 "kflda jfk;lasj f;jasdlk f;ajsdk fdskljfdskfjkdsjf;lasdf ;lnasd ljasldkfj ;aslksan g;ak akg";
         while (true) {
-            int rand = random.nextInt(4);
+            int rand = random.nextInt(20);
             if (rand == 1) {
                 if (stringList.size() != 0) {
                     stringList.remove(stringList.size() - 1);
